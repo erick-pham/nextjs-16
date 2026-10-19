@@ -69,5 +69,8 @@
   // JSON Schema
   "json.schemaDownload.trustedDomains": {
     "https://ui.shadcn.com": true
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode"
   }
 }

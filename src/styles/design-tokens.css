@@ -1,0 +1,297 @@
+/*
+ * Design Tokens — Fintech / EdTech Dual-Domain System
+ * Stack: Next.js 16 · Tailwind CSS v4 · Plus Jakarta Sans
+ *
+ * Palette:
+ *   Fintech  — Deep Navy #1E3A5F | Emerald #059669 | Crimson #DC2626 | Royal Blue #2563EB
+ *   EdTech   — Warm Indigo #4F46E5 | Soft Purple #7C3AED | Amber Gold #D97706
+ * Style: Glassmorphism (backdrop-blur, frosted surfaces, Z-depth)
+ */
+
+/* ─── Google Font ─────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ─── @theme: Tailwind v4 token bridge ───────────────────── */
+@theme inline {
+  --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+
+  /* Fluid typography — clamp(min, preferred, max) */
+  --text-2xs: clamp(0.625rem, 0.5vw + 0.5rem, 0.75rem);
+  --text-xs: clamp(0.75rem, 0.5vw + 0.6rem, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.6vw + 0.7rem, 1rem);
+  --text-base: clamp(1rem, 0.75vw + 0.8rem, 1.125rem);
+  --text-lg: clamp(1.125rem, 1vw + 0.85rem, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.25vw + 0.9rem, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.75vw + 1rem, 2rem);
+  --text-3xl: clamp(1.875rem, 2.5vw + 1rem, 2.5rem);
+  --text-4xl: clamp(2.25rem, 3.5vw + 1rem, 3.5rem);
+  --text-5xl: clamp(3rem, 5vw + 1rem, 4.5rem);
+
+  /* Icon sizes */
+  --icon-xs: 12px;
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+
+  /* Motion tokens */
+  --duration-instant: 50ms;
+  --duration-fast: 100ms;
+  --duration-base: 150ms;
+  --duration-slow: 250ms;
+  --duration-slower: 350ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Semantic color bridges ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Status */
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-subtle: var(--info-subtle);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-error-subtle: var(--error-subtle);
+
+  /* EdTech domain */
+  --color-edtech-primary: var(--edtech-primary);
+  --color-edtech-accent: var(--edtech-accent);
+  --color-edtech-gold: var(--edtech-gold);
+  --color-edtech-gold-subtle: var(--edtech-gold-subtle);
+
+  /* Glass */
+  --color-glass: var(--glass);
+  --color-glass-border: var(--glass-border);
+
+  /* Sidebar (existing bridge) */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Chart */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radii */
+  --radius-none: 0px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-full: 9999px;
+
+  /* Glass shadows */
+  --shadow-glass: 0 4px 16px 0 rgba(0, 0, 0, 0.08), 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-glass-md: 0 8px 32px 0 rgba(0, 0, 0, 0.12), 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  --shadow-glass-lg: 0 16px 48px 0 rgba(0, 0, 0, 0.16), 0 4px 16px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Light Mode ──────────────────────────────────────────── */
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Fintech: Deep Navy */
+  --primary: #1e3a5f;
+  --primary-foreground: #ffffff;
+
+  /* Royal Blue trust */
+  --secondary: #2563eb;
+  --secondary-foreground: #ffffff;
+
+  --muted: #e9eff8;
+  --muted-foreground: #475569;
+
+  /* Warm orange CTA — 4.7:1 on white */
+  --accent: #ea580c;
+  --accent-foreground: #ffffff;
+
+  /* Crimson alert */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+
+  --border: #cbd5e1;
+  --input: #e2e8f0;
+  --ring: #2563eb;
+
+  /* Emerald Green (yield / positive returns) */
+  --success: #059669;
+  --success-foreground: #ffffff;
+  --success-subtle: #ecfdf5;
+
+  --warning: #d97706;
+  --warning-foreground: #ffffff;
+  --warning-subtle: #fffbeb;
+
+  --info: #0284c7;
+  --info-foreground: #ffffff;
+  --info-subtle: #f0f9ff;
+
+  --error: #dc2626;
+  --error-foreground: #ffffff;
+  --error-subtle: #fef2f2;
+
+  /* EdTech */
+  --edtech-primary: #4f46e5;
+  --edtech-accent: #7c3aed;
+  --edtech-gold: #d97706;
+  --edtech-gold-subtle: #fffbeb;
+
+  /* Glassmorphism */
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+
+  /* Charts */
+  --chart-1: #2563eb;
+  --chart-2: #059669;
+  --chart-3: #d97706;
+  --chart-4: #7c3aed;
+  --chart-5: #dc2626;
+
+  /* Sidebar */
+  --sidebar: #f1f5f9;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #1e3a5f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9eff8;
+  --sidebar-accent-foreground: #1e3a5f;
+  --sidebar-border: #cbd5e1;
+  --sidebar-ring: #2563eb;
+
+  --radius: 0.5rem;
+}
+
+/* ─── Dark Mode ───────────────────────────────────────────── */
+.dark {
+  --background: #060d1a;
+  --foreground: #f1f5f9;
+  --card: #0f1e35;
+  --card-foreground: #f1f5f9;
+  --popover: #0f1e35;
+  --popover-foreground: #f1f5f9;
+
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+
+  --secondary: #1d4ed8;
+  --secondary-foreground: #ffffff;
+
+  --muted: #1e2d45;
+  --muted-foreground: #94a3b8;
+
+  --accent: #f97316;
+  --accent-foreground: #0f172a;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #3b82f6;
+
+  --success: #10b981;
+  --success-foreground: #022c22;
+  --success-subtle: rgba(16, 185, 129, 0.15);
+
+  --warning: #f59e0b;
+  --warning-foreground: #1c1917;
+  --warning-subtle: rgba(245, 158, 11, 0.15);
+
+  --info: #38bdf8;
+  --info-foreground: #0c1a26;
+  --info-subtle: rgba(56, 189, 248, 0.15);
+
+  --error: #ef4444;
+  --error-foreground: #ffffff;
+  --error-subtle: rgba(239, 68, 68, 0.15);
+
+  --edtech-primary: #818cf8;
+  --edtech-accent: #a78bfa;
+  --edtech-gold: #fcd34d;
+  --edtech-gold-subtle: rgba(252, 211, 77, 0.15);
+
+  --glass: rgba(15, 30, 53, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  --chart-1: #60a5fa;
+  --chart-2: #34d399;
+  --chart-3: #fbbf24;
+  --chart-4: #a78bfa;
+  --chart-5: #f87171;
+
+  --sidebar: #0a1628;
+  --sidebar-foreground: #cbd5e1;
+  --sidebar-primary: #3b82f6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e2d45;
+  --sidebar-accent-foreground: #93c5fd;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --sidebar-ring: #3b82f6;
+}
+
+/* ─── Utilities ───────────────────────────────────────────── */
+@layer utilities {
+  .glass-surface {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Tabular figures for financial data */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  /* Financial delta colours */
+  .delta-positive {
+    color: var(--success);
+  }
+  .delta-negative {
+    color: var(--error);
+  }
+}
