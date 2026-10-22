@@ -54,7 +54,7 @@ export const Default: Story = {
           <span className="font-mono text-2xl font-bold tracking-tight text-foreground">
             $128,450.00
           </span>
-          <span className="flex items-center gap-1 text-xs font-medium text-success">
+          <span className="text-success flex items-center gap-1 text-xs font-medium">
             ▲ +14.2% from last month
           </span>
         </div>

@@ -1,5 +1,7 @@
+import type { Locale } from 'next-intl';
 import { hasLocale } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
+import { UsFlagIcon } from '@/icons';
 import { routing } from './I18nRouting';
 
 // NextJS Boilerplate uses Crowdin as the localization software.
@@ -23,3 +25,30 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: (await import(`../locales/${locale}.json`)).default,
   };
 });
+
+export type Language = {
+  id: Locale;
+  name: string;
+  shortName: string;
+  dir: 'ltr' | 'rtl';
+  FlagIcon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  badge?: string;
+};
+
+export const languages = [
+  {
+    id: 'en',
+    name: 'English',
+    shortName: 'English',
+    dir: 'ltr',
+    FlagIcon: UsFlagIcon,
+  },
+] as const satisfies Language[];
+
+export function getLanguage(locale: Locale): Language {
+  return languages.find((l) => l.id === locale) ?? languages[0];
+}
+
+export function isRtl(locale: Locale): boolean {
+  return getLanguage(locale).dir === 'rtl';
+}

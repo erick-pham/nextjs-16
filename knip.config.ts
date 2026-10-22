@@ -7,10 +7,13 @@ const config: KnipConfig = {
     'src/types/I18n.ts',
     'src/components/ui/**/*.{ts,tsx}',
     'src/components/design-system/**/*.{ts,tsx}',
-    'src/styles/design-tokens.css',
+    'src/data/**/*.{ts,tsx}',
+    'src/icons/index.tsx',
+    'src/libs/shared.ts',
+    'src/libs/auth.ts',
   ],
   // Dependencies to ignore during analysis
-  ignoreDependencies: ['@clerk/shared', 'shadcn', 'tw-animate-css'],
+  ignoreDependencies: [],
   // Include custom Playwright test file suffixes
   playwright: {
     entry: ['tests/**/*.@(integ|e2e).ts'],

@@ -50,7 +50,7 @@ export function Checkbox(props: CheckboxProps) {
           )}
         >
           <Check
-            className="h-3.5 w-3.5 stroke-3 text-primary-foreground transition-all duration-150 ease-spring dark:text-white"
+            className="ease-spring h-3.5 w-3.5 stroke-3 text-primary-foreground transition-all duration-150 dark:text-white"
             aria-hidden="true"
           />
         </div>

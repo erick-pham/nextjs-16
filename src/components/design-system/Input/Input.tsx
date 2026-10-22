@@ -93,7 +93,7 @@ const renderHelperText = ({
       <p
         id={errorId}
         role="alert"
-        className="flex items-center gap-1 text-xs font-medium text-error"
+        className="text-error flex items-center gap-1 text-xs font-medium"
       >
         <svg
           viewBox="0 0 16 16"

@@ -1,10 +1,14 @@
 import type { Metadata, Viewport } from 'next';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { DemoBadge } from '@/components/DemoBadge';
-import { routing } from '@/libs/I18nRouting';
+import { ThemeProvider } from 'next-themes';
 import '@/styles/global.css';
+/* Design tokens — Fintech/EdTech dual-domain system */
+import '@/styles/design-tokens.css';
+import { notFound } from 'next/navigation';
+import { Toaster } from 'sonner';
+import { routing } from '@/libs/I18nRouting';
+import Providers from '@/providers/providers';
 
 export const metadata: Metadata = {
   icons: [
@@ -56,9 +60,10 @@ export default async function RootLayout(props: {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider>
-          {props.children}
-
-          <DemoBadge />
+          <ThemeProvider attribute="class" defaultTheme="light" disableTransitionOnChange>
+            <Toaster richColors closeButton />
+            <Providers>{props.children}</Providers>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

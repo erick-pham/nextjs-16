@@ -244,7 +244,7 @@ export function Select(props: SelectProps) {
       )}
 
       {hasError && (
-        <p role="alert" className="text-xs font-medium text-error">
+        <p role="alert" className="text-error text-xs font-medium">
           {error}
         </p>
       )}
