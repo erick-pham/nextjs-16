@@ -50,7 +50,7 @@ export const Default: Story = {
   render: (args) => (
     <div className="p-16">
       <Tooltip {...args}>
-        <Button variant="outlined">Hover or Focus Me</Button>
+        <Button appearance="outline">Hover or Focus Me</Button>
       </Tooltip>
     </div>
   ),
@@ -60,19 +60,19 @@ export const WithShortcut: Story = {
   render: (args) => (
     <div className="flex items-center gap-4 p-16">
       <Tooltip content="Quick search" shortcut="⌘K" position={args.position}>
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Search
         </Button>
       </Tooltip>
 
       <Tooltip content="Save changes" shortcut="⌘S" variant="primary" position={args.position}>
-        <Button color="primary" size="sm">
+        <Button variant="primary" size="sm">
           Save
         </Button>
       </Tooltip>
 
       <Tooltip content="Copy link" shortcut="⌘C" variant="info" position={args.position}>
-        <Button variant="outlined" color="info" size="sm">
+        <Button appearance="outline" variant="info" size="sm">
           Share
         </Button>
       </Tooltip>
@@ -84,37 +84,37 @@ export const AllVariants: Story = {
   render: (args) => (
     <div className="flex flex-wrap items-center gap-4 p-16">
       <Tooltip content="Default dark gradient" variant="default" position={args.position}>
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Default
         </Button>
       </Tooltip>
 
       <Tooltip content="Primary royal gradient" variant="primary" position={args.position}>
-        <Button color="primary" size="sm">
+        <Button variant="primary" size="sm">
           Primary
         </Button>
       </Tooltip>
 
       <Tooltip content="Informational hint" variant="info" position={args.position}>
-        <Button color="info" size="sm">
+        <Button variant="info" size="sm">
           Info
         </Button>
       </Tooltip>
 
       <Tooltip content="Action succeeded" variant="success" position={args.position}>
-        <Button color="success" size="sm">
+        <Button variant="success" size="sm">
           Success
         </Button>
       </Tooltip>
 
       <Tooltip content="Requires attention" variant="warning" position={args.position}>
-        <Button color="warning" size="sm">
+        <Button variant="warning" size="sm">
           Warning
         </Button>
       </Tooltip>
 
       <Tooltip content="Irreversible action" variant="error" position={args.position}>
-        <Button color="error" size="sm">
+        <Button variant="destructive" size="sm">
           Error
         </Button>
       </Tooltip>
@@ -132,7 +132,7 @@ export const RichCards: Story = {
         position={args.position}
         showIcon
       >
-        <Button color="success" variant="outlined" size="sm">
+        <Button variant="success" appearance="outline" size="sm">
           Hover for APY
         </Button>
       </Tooltip>
@@ -145,7 +145,7 @@ export const RichCards: Story = {
         position={args.position}
         showIcon
       >
-        <Button color="primary" size="sm">
+        <Button variant="primary" size="sm">
           Smart Order
         </Button>
       </Tooltip>
@@ -157,7 +157,7 @@ export const RichCards: Story = {
         position="bottom"
         showIcon
       >
-        <Button color="warning" variant="outlined" size="sm">
+        <Button variant="warning" appearance="outline" size="sm">
           Fee Warning
         </Button>
       </Tooltip>
@@ -169,7 +169,7 @@ export const RichCards: Story = {
         position={args.position}
         showIcon
       >
-        <Button color="error" variant="outlined" size="sm">
+        <Button variant="destructive" appearance="outline" size="sm">
           Delete Wallet
         </Button>
       </Tooltip>
@@ -181,25 +181,25 @@ export const AllPositions: Story = {
   render: (args) => (
     <div className="flex items-center gap-6 p-24">
       <Tooltip content="Tooltip on top" position={args.position} variant="primary">
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Top
         </Button>
       </Tooltip>
 
       <Tooltip content="Tooltip on bottom" position="bottom" variant="info">
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Bottom
         </Button>
       </Tooltip>
 
       <Tooltip content="Tooltip on left" position="left" variant="success">
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Left
         </Button>
       </Tooltip>
 
       <Tooltip content="Tooltip on right" position="right" variant="default">
-        <Button variant="outlined" size="sm">
+        <Button appearance="outline" size="sm">
           Right
         </Button>
       </Tooltip>

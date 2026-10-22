@@ -15,27 +15,27 @@ function PremiumToastNotificationDemo() {
       {/* Top 4 Trigger Buttons matching the mockup */}
       <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
         <Button
-          color="success"
+          variant="success"
           onClick={() => toast.success('Success', 'Everything went smoothly!')}
         >
           Success
         </Button>
 
         <Button
-          color="info"
+          variant="info"
           onClick={() => toast.info('Info', 'This is some information for you.')}
         >
           Info
         </Button>
 
         <Button
-          color="warning"
+          variant="warning"
           onClick={() => toast.warning('Warning', 'Be careful with this next step.')}
         >
           Warning
         </Button>
 
-        <Button color="error" onClick={() => toast.error('Error', 'Something went wrong.')}>
+        <Button variant="destructive" onClick={() => toast.error('Error', 'Something went wrong.')}>
           Error
         </Button>
       </div>

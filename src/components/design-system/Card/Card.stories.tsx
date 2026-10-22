@@ -61,7 +61,7 @@ export const Default: Story = {
       </CardContent>
       <CardFooter className="justify-between">
         <span className="text-xs text-muted-foreground">Updated 2m ago</span>
-        <Button size="sm" variant="outlined">
+        <Button size="sm" appearance="outline">
           View Ledger
         </Button>
       </CardFooter>

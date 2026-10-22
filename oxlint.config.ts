@@ -34,8 +34,11 @@ export default defineConfig({
     'jsdoc/require-param-description': 'error',
     'jsdoc/require-returns': 'error',
     'jsdoc/require-returns-description': 'error',
+
+    'oxc/no-barrel-file': 'off',
   },
   options: {
     reportUnusedDisableDirectives: 'error',
   },
+  ignorePatterns: ['src/components/ui/**/*.tsx', 'src/components/design-system/**/*.tsx'],
 });

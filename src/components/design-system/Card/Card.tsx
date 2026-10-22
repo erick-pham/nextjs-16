@@ -3,31 +3,28 @@ import type { VariantProps } from 'class-variance-authority';
 import type { HTMLAttributes } from 'react';
 import { cn } from '@/libs/utils';
 
-export const cardVariants = cva(
-  'rounded-2xl border transition-all duration-200 text-card-foreground',
-  {
-    variants: {
-      variant: {
-        default: 'bg-card border-border shadow-xs hover:border-border/80',
-        interactive:
-          'bg-card border-border shadow-xs hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 cursor-pointer',
-        glass: 'bg-background/60 backdrop-blur-md border-white/10 dark:border-white/5 shadow-sm',
-        outline: 'bg-transparent border-border/80 hover:border-border',
-        subtle: 'bg-muted/40 border-transparent hover:bg-muted/60',
-      },
-      padding: {
-        none: 'p-0',
-        sm: 'p-4',
-        md: 'p-6',
-        lg: 'p-8',
-      },
+const cardVariants = cva('rounded-2xl border transition-all duration-200 text-card-foreground', {
+  variants: {
+    variant: {
+      default: 'bg-card border-border shadow-xs hover:border-border/80',
+      interactive:
+        'bg-card border-border shadow-xs hover:border-primary/40 hover:shadow-md hover:-translate-y-0.5 cursor-pointer',
+      glass: 'bg-background/60 backdrop-blur-md border-white/10 dark:border-white/5 shadow-sm',
+      outline: 'bg-transparent border-border/80 hover:border-border',
+      subtle: 'bg-muted/40 border-transparent hover:bg-muted/60',
     },
-    defaultVariants: {
-      variant: 'default',
-      padding: 'md',
+    padding: {
+      none: 'p-0',
+      sm: 'p-4',
+      md: 'p-6',
+      lg: 'p-8',
     },
   },
-);
+  defaultVariants: {
+    variant: 'default',
+    padding: 'md',
+  },
+});
 
 export type CardProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>;
 

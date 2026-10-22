@@ -1,6 +1,5 @@
 // Core Inputs & Controls
 export * from './Button/Button';
-export type * from './Button/Button.types';
 export * from './Input/Input';
 export * from './Select/Select';
 export * from './Checkbox/Checkbox';

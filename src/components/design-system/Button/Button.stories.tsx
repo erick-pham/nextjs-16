@@ -16,22 +16,22 @@ const meta: Meta<typeof Button> = {
     },
   },
   argTypes: {
-    variant: {
+    appearance: {
       control: 'radio',
-      options: ['contained', 'outlined', 'text'],
+      options: ['solid', 'gradient', 'outline', 'ghost'],
       description: 'Surface treatment',
     },
-    color: {
-      control: 'select',
-      options: ['primary', 'secondary', 'info', 'success', 'warning', 'error'],
-      description: 'Semantic color palette',
+    variant: {
+      control: 'radio',
+      options: ['primary', 'secondary', 'info', 'success', 'warning', 'destructive'],
+      description: 'Surface treatment',
     },
     size: {
       control: 'radio',
-      options: ['sm', 'md', 'lg'],
+      options: ['default', 'sm', 'md', 'lg'],
       description: 'Size preset',
     },
-    isLoading: {
+    loading: {
       control: 'boolean',
       description: 'Shows spinner and disables interaction',
     },
@@ -47,10 +47,10 @@ const meta: Meta<typeof Button> = {
   },
   args: {
     children: 'Button',
-    variant: 'contained',
-    color: 'primary',
-    size: 'md',
-    isLoading: false,
+    appearance: 'default',
+    variant: 'primary',
+    size: 'default',
+    loading: false,
     disabled: false,
     fullWidth: false,
   },
@@ -62,16 +62,16 @@ type Story = StoryObj<typeof Button>;
 // ── State stories ─────────────────────────────────────────────────────────────
 
 export const Loading: Story = {
-  args: { color: 'primary', isLoading: true, children: 'Submitting…' },
+  args: { variant: 'primary', loading: true, children: 'Submitting…' },
 };
 
 export const Disabled: Story = {
-  args: { color: 'primary', disabled: true, children: 'Unavailable' },
+  args: { variant: 'primary', disabled: true, children: 'Unavailable' },
 };
 
 export const WithIconLeft: Story = {
   args: {
-    color: 'primary',
+    variant: 'primary',
     children: 'Add Item',
     iconLeft: <Plus size={16} aria-hidden="true" />,
   },
@@ -79,8 +79,8 @@ export const WithIconLeft: Story = {
 
 export const WithIconRight: Story = {
   args: {
-    variant: 'outlined',
-    color: 'primary',
+    appearance: 'outline',
+    variant: 'primary',
     children: 'Download Report',
     iconRight: <Download size={16} aria-hidden="true" />,
   },
@@ -88,7 +88,7 @@ export const WithIconRight: Story = {
 
 export const FullWidth: Story = {
   args: {
-    color: 'primary',
+    variant: 'primary',
     fullWidth: true,
     children: 'Complete Purchase',
   },
@@ -97,22 +97,22 @@ export const FullWidth: Story = {
 
 // ── Showcase ──────────────────────────────────────────────────────────────────
 
-const COLORS = ['primary', 'secondary', 'info', 'success', 'warning', 'error'] as const;
-const VARIANTS = ['contained', 'outlined', 'text'] as const;
+const VARIANTS = ['primary', 'secondary', 'info', 'success', 'warning', 'destructive'] as const;
+const appearanceS = ['default', 'outline', 'gradient', 'ghost'] as const;
 
 /** Full variant × color matrix. */
 export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-col gap-6 p-6">
-      {VARIANTS.map((variant) => (
-        <div key={variant} className="flex flex-col gap-2">
+      {appearanceS.map((appearance) => (
+        <div key={appearance} className="flex flex-col gap-2">
           <p className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
-            {variant}
+            {appearance}
           </p>
           <div className="flex flex-wrap items-center gap-2.5">
-            {COLORS.map((color) => (
-              <Button key={color} variant={variant} color={color}>
-                {color.charAt(0).toUpperCase() + color.slice(1)}
+            {VARIANTS.map((variant) => (
+              <Button key={variant} variant={variant} appearance={appearance}>
+                {variant.charAt(0).toUpperCase() + variant.slice(1)}
               </Button>
             ))}
           </div>
@@ -126,8 +126,9 @@ export const AllVariants: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div className="flex items-center gap-3 p-4">
+      <Button size="xs">Extra Small</Button>
       <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
+      <Button size="default">Default</Button>
       <Button size="lg">Large</Button>
     </div>
   ),

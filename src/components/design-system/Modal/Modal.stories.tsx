@@ -65,7 +65,7 @@ export const InteractiveDemo: Story = {
           </ModalBody>
           <ModalFooter>
             <Button
-              variant="outlined"
+              appearance="outline"
               onClick={() => {
                 setOpen(false);
               }}
@@ -92,7 +92,7 @@ export const DestructiveConfirmation: Story = {
     return (
       <div className="flex flex-col items-center justify-center p-12">
         <Button
-          color="error"
+          variant="destructive"
           onClick={() => {
             setOpen(true);
           }}
@@ -115,7 +115,7 @@ export const DestructiveConfirmation: Story = {
           </ModalHeader>
           <ModalFooter>
             <Button
-              variant="outlined"
+              appearance="outline"
               onClick={() => {
                 setOpen(false);
               }}
@@ -123,7 +123,7 @@ export const DestructiveConfirmation: Story = {
               Dismiss
             </Button>
             <Button
-              color="error"
+              variant="destructive"
               onClick={() => {
                 setOpen(false);
               }}
